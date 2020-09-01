@@ -62,15 +62,24 @@
 		text-align: center;
 	}
 
+	p {
+		padding: 10px;
+	}
+
 	.column {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 	}
 
+	.column h4 {
+		text-transform: uppercase;
+	}
+
 	.column a {
 		color: #000;
 		text-decoration: none;
+		padding: 10px;
 	}
 
 	.copyright-footer {
