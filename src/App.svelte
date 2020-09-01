@@ -30,9 +30,9 @@
 				</div>
 				<div class="column">
 					<h4>Opening Hours </h4>
-					<p>Mon-Fri: 9am - 10pm</p>
-					<p>Saturday: 10am - 10pm</p>
-					<p>Sunday: 10am - 11pm</p>
+					<p class="dates">Mon-Fri: 9am - 10pm</p>
+					<p class="dates">Saturday: 10am - 10pm</p>
+					<p class="dates">Sunday: 10am - 11pm</p>
 				</div>
 			</div>
 		</div>
@@ -74,6 +74,7 @@
 
 	.column h4 {
 		text-transform: uppercase;
+		font-size: 20px;
 	}
 
 	.column a {
@@ -86,18 +87,19 @@
 		padding: 20px;
 	}
 	.copyright-footer p {
-		font-weight: 200;
+		/* font-weight: 200; */
+		color: grey;
 	}
 	.small-navbar {
 		display: flex;
 		justify-content: space-around;
+		align-items: center;
 	}
 	.small-navbar a {
 		padding: 0 20px;
 		color: #000;
 		text-decoration: none;
 	}
-
 	@media screen and (max-width: 820px){
 		.row {
 			flex-direction: column;
@@ -107,6 +109,12 @@
 		.column {
 			margin: 20px 0;
 			width: 100%;
+		}
+	}
+
+	@media screen and (max-width: 500px) {
+		.small-navbar {
+			display: none;
 		}
 	}
 </style>

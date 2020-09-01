@@ -88,7 +88,7 @@
 		font-weight: 500;
 	}
 	p {
-		font-weight: 300;
+		color: grey;
 		font-size: 14px;
 	}
 
