@@ -45,8 +45,13 @@
 	.shop-now {
 		display: flex;
 		align-items: center;
+		color: #000;
+		text-decoration: none;
+		padding: 10px;
 	}
-
+	.shop-now span {
+		margin-right: 10px;
+	}
 	.name h2 {
 		font-size: 4rem;
 	}
@@ -113,7 +118,7 @@
 			voluptatem at!
 		</p>
 		<a href="#" class="shop-now">
-			<span> Shop now</span>
+			<span> Shop now </span>
 			<svg
 				viewBox="0 0 24 24"
 				width="24"
