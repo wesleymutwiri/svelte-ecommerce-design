@@ -56,6 +56,8 @@
 	.name-buttons {
 		display: flex;
 		justify-content: space-between;
+		margin-top: 20px;
+		align-items: center;
 	}
 
 	@media screen and (max-width: 800px) {
@@ -93,7 +95,8 @@
 				class="css-i6dzq1"
 				on:click={next}>
 				<polyline points="15 18 9 12 15 6" />
-			</svg> 1 of 2
+			</svg>
+			{currentCarouselIndex + 1} of {carouselPhotos.length}
 		</div>
 	</div>
 	{#each [carouselPhotos[currentCarouselIndex]] as photo (currentCarouselIndex)}
