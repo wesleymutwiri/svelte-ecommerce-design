@@ -69,5 +69,13 @@
 		ul {
 			flex-direction: column;
 		}
+		ul li {
+			width: 100%;
+			padding: 20px;
+		}
+		ul li button {
+			width: 100%;
+			padding: 20px;
+		}
 	}
 </style>
