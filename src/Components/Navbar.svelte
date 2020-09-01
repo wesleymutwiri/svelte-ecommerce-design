@@ -23,9 +23,9 @@
 		<div class="navbar-logo">SOMETHING</div>
 		<div class={`navbar-items nav-elements${showMobileMenu ? ' mobile': ''}`}>
 			<ul>
-				<li><a href="#">Store</a></li>
-				<li><a href="#">Plant Care</a></li>
-				<li><a href="#">About</a></li>
+				<li><a href="#" on:click={handleMobileIconClick}>Store</a></li>
+				<li><a href="#" on:click={handleMobileIconClick}>Plant Care</a></li>
+				<li><a href="#" on:click={handleMobileIconClick}>About</a></li>
 			</ul>
 		</div>
 		<div class="navbar-icons">
