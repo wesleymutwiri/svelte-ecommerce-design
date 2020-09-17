@@ -1,5 +1,7 @@
 <script>
     import { onMount } from "svelte";
+    import { url, isActive } from "@sveltech/routify";
+
     let showMobileMenu = false; 
     const handleMobileIconClick = () => {showMobileMenu = !showMobileMenu}
 
@@ -20,10 +22,10 @@
         <div on:click={handleMobileIconClick} class={`mobile-icon${showMobileMenu ? ' active' : ''}`}>
             <div class="middle-line"></div>
         </div>
-		<div class="navbar-logo">SOMETHING</div>
+		<div class="navbar-logo"><a href="/">SOMETHING</a></div>
 		<div class={`navbar-items nav-elements${showMobileMenu ? ' mobile': ''}`}>
 			<ul>
-				<li><a href="#" on:click={handleMobileIconClick}>Store</a></li>
+				<li><a href="{$url('/store')}" on:click={handleMobileIconClick}>Store</a></li>
 				<li><a href="#" on:click={handleMobileIconClick}>Plant Care</a></li>
 				<li><a href="#" on:click={handleMobileIconClick}>About</a></li>
 			</ul>
