@@ -1,6 +1,7 @@
 <script>
     import CartItem from '../../Components/UI/Cart/CartItem.svelte';
     import SelectCountry from '../../Components/UI/Cart/SelectCountry.svelte';
+    let cats = Array.from(Array(3)).map(x=> Math.random())
 
 </script>
 
@@ -8,7 +9,13 @@
     
     <div class="cart-items">
         <h1>Shopping Cart</h1>
+        {#each cats as cat, i}
         <CartItem />
+        {/each}
+        <div class="cart-items-footer">
+            <a href="#">Continue Shipping</a>
+            <p>Price: <span class="dark-text"> $470.00 </span></p>
+        </div>
     </div>
     
     <div class="shipping-details">
@@ -62,5 +69,25 @@
         background: #f6f6f6;
         padding: 20px;
         width: 350px;
+    }
+    .cart-items {
+        width: 100%;
+    }
+
+    .cart-items h1 {
+        margin-bottom: 40px;
+    }
+
+    .cart-items-footer {
+        display: flex;
+        justify-content: space-between;
+        padding: 30px;
+    }
+    .cart-items-footer a {
+        color: black;
+        text-decoration: none;
+    }
+    .dark-text {
+        font-weight: bolder;
     }
 </style>
