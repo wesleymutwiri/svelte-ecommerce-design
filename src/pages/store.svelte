@@ -1,8 +1,11 @@
 <script>
     import Sidebar from '../Components/UI/Store/Sidebar.svelte';
     import ProductItem from '../Components/UI/Product/ProductItem.svelte';
+    import Header from '../Components/UI/Header.svelte';
+
     let cats = Array.from(Array(21)).map(x=> Math.random())
 </script>
+<Header/>
 
 <div class="store-container">
     <Sidebar />

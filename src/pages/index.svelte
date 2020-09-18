@@ -1,11 +1,11 @@
 <script>
 	import Cards from '../Components/UI/Card.svelte';
 	import Products from '../Components/UI/Products.svelte';
+    import Header from '../Components/UI/Header.svelte';
 </script>
-<main>
+	<Header/>
 	<Cards />
 	<Products />
-</main>
 <footer>
 	<div class="container">
 		<div class="details-footer">

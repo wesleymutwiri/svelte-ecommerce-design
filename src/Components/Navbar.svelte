@@ -69,7 +69,7 @@
                 </li>
                  </div>
 				<li>
-					<a href="#">
+					<a href="{$url('/cart')}">
 						<svg
 							viewBox="0 0 24 24"
 							stroke="currentColor"
