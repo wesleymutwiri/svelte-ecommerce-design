@@ -93,11 +93,16 @@
 </nav>
 
 <style>
+  a {
+    color: #070707;
+    text-decoration: none;
+  }
 	.navbar {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
 		padding: 40px;
+    align-items: center;
 	}
 	ul {
 		list-style-type: none;
