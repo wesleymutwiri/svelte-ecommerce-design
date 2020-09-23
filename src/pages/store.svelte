@@ -2,8 +2,8 @@
     import Sidebar from '../Components/UI/Store/Sidebar.svelte';
     import ProductItem from '../Components/UI/Product/ProductItem.svelte';
     import Header from '../Components/UI/Header.svelte';
+    import {products} from '../Components/UI/Product/products-store.js';
 
-    let cats = Array.from(Array(21)).map(x=> Math.random())
 </script>
 <Header/>
 
@@ -12,11 +12,11 @@
     <div class="products-container">
         <div class="products-header">
             <h2>Sort by: A-Z</h2>
-            <p>Showing 1-{cats.length} of {cats.length} results</p>
+            <p>Showing 1-{$products.length} of {$products.length} results</p>
         </div>
         <div class="products">
-        {#each cats as cat, i}
-        <ProductItem/>
+        {#each $products as product (product.id)}
+        <ProductItem id={product.id} title={product.title} price={product.price}/>
         {/each}
     </div>
     </div>
