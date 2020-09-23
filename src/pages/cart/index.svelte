@@ -1,7 +1,7 @@
 <script>
     import CartItem from '../../Components/UI/Cart/CartItem.svelte';
     import ShippingForm from '../../Components/UI/Cart/ShippingForm.svelte';
-
+    import cartItems from "./cart-store.js";
     let cats = Array.from(Array(3)).map(x=> Math.random())
 
 </script>
@@ -10,8 +10,10 @@
     
     <div class="cart-items">
         <h1>Shopping Cart</h1>
-        {#each cats as cat, i}
-        <CartItem />
+        {#each $cartItems as item (item.id)}
+        <CartItem id={item.id} title={item.title} price={item.price}/>
+        {:else}
+        <p>Wow, such empty</p>
         {/each}
         <div class="cart-items-footer">
             <a href="/store">Continue Shopping</a>
