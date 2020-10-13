@@ -65,6 +65,10 @@
     align-items: center;
   }
 
+  .css-i6dzq1 {
+    cursor: pointer;
+  }
+
   @media screen and (max-width: 800px) {
     .carousel {
       grid-template-areas:
