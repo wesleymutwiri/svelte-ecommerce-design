@@ -65,7 +65,7 @@
       {#if count} ${price * count} {:else} ${price} {/if}
     </div>
 
-    <button class="close" on:click="{removeFromCart}">
+    <button class="close">
       <svg
         viewBox="0 0 24 24"
         width="24"
@@ -76,6 +76,7 @@
         stroke-linecap="round"
         stroke-linejoin="round"
         class="css-i6dzq1"
+        on:click="{removeFromCart}"
       >
         <line x1="18" y1="6" x2="6" y2="18"></line>
         <line x1="6" y1="6" x2="18" y2="18"></line>
