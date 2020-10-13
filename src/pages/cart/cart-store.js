@@ -14,7 +14,7 @@ const customCart = {
   },
   removeItem: (id) => {
     cart.update((items) => {
-      return items.filter((i) => i.id === id);
+      return items.filter((i) => i.id !== id);
     });
   },
 };
