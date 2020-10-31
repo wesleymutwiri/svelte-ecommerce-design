@@ -21,6 +21,7 @@
     height: 60vh;
     gap: 20px;
     margin-bottom: 100px;
+    margin-top: 100px;
   }
   .carousel img {
     grid-area: image;
