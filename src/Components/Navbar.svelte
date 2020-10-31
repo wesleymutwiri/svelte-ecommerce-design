@@ -1,7 +1,10 @@
 <script>
     import { onMount } from "svelte";
     import { url, isActive } from "@sveltech/routify";
-
+    
+    import { scale } from 'svelte/transition';
+	  import { quintOut } from 'svelte/easing';
+    
     import cartItems from "../pages/cart/cart-store.js";
 
     let showMobileMenu = false; 
@@ -12,14 +15,15 @@
             showMobileMenu = false; 
         }
     };
-
+    let background;
+    console.log(background)
     onMount(() => {
         const mediaListener = window.matchMedia("(max-width: 710px)")
         mediaListener.addListener(mediaQueryHandler)
     })
 </script>
-
-<nav>
+<svelte:window bind:scrollY={background} />
+<nav class={`${(background > 20) ? 'on-scroll': ''}`}>
 	<div class="navbar">
         <div on:click={handleMobileIconClick} class={`mobile-icon${showMobileMenu ? ' active' : ''}`}>
             <div class="middle-line"></div>
@@ -88,7 +92,7 @@
 							<path d="M16 10a4 4 0 0 1-8 0"></path>
             </svg>
             {#if $cartItems.length}
-            <span class="badge">{$cartItems.length}</span>
+            <span class="badge" transition:scale="{{duration: 500, delay: 500, opacity: 0.5, start: 0.5, easing: quintOut}}">{$cartItems.length}</span>
             {/if}
 					</a>
 				</li>
@@ -98,6 +102,14 @@
 </nav>
 
 <style>
+  nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+  }
+  .on-scroll {
+    background-color: #fff;
+  }
   a {
     color: #070707;
     text-decoration: none;
