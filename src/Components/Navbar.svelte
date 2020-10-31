@@ -2,6 +2,8 @@
     import { onMount } from "svelte";
     import { url, isActive } from "@sveltech/routify";
 
+    import cartItems from "../pages/cart/cart-store.js";
+
     let showMobileMenu = false; 
     const handleMobileIconClick = () => {showMobileMenu = !showMobileMenu}
 
@@ -69,7 +71,7 @@
                 </li>
                  </div>
 				<li>
-					<a href="{$url('/cart')}">
+					<a href="{$url('/cart')}" class="cart-logo">
 						<svg
 							viewBox="0 0 24 24"
 							stroke="currentColor"
@@ -84,7 +86,10 @@
 							></path>
 							<line x1="3" y1="6" x2="21" y2="6"></line>
 							<path d="M16 10a4 4 0 0 1-8 0"></path>
-						</svg>
+            </svg>
+            {#if $cartItems.length}
+            <span class="badge">{$cartItems.length}</span>
+            {/if}
 					</a>
 				</li>
 			</ul>
@@ -172,6 +177,25 @@
   }
   .mobile-icon.active .middle-line {
     transform: rotate(45deg);
+  }
+
+  .cart-logo {
+    position: relative;
+  }
+  .badge {
+    display: inline-block;
+    position: absolute;
+    top: -20px;
+    background-color: green;
+    color: #d7e6fd;
+    border-radius: 50%;
+    font-size: 14px;
+    min-width: 18px;
+    line-height: 18px;
+    right: 7px;
+    text-align: center;
+    width: 25px;
+    padding: 3px;
   }
 	@media screen and (max-width: 710px) {
         .navbar {
