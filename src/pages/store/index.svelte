@@ -4,8 +4,10 @@
     import Header from '../../Components/UI/Header.svelte';
     import {products} from '../../Components/UI/Product/products-store.js';
 
+    
 </script>
 <Header/>
+
 
 <div class="store-container">
     <Sidebar />
@@ -43,5 +45,16 @@
       justify-content: space-between;
       align-items: baseline;
       padding: 20px;
+  }
+
+  @media screen and (max-width: 850px){
+    .store-container {
+      flex-direction: column;
+    }
+  }
+  @media screen and (max-width: 700px) {
+    .products {
+      display: block;
+    }
   }
 </style>

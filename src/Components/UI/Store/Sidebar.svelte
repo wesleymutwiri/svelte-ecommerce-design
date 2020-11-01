@@ -1,9 +1,15 @@
 <script>
   import PriceSlider from "../Product/PriceSlider.svelte";
+  let showSidebar = false;
+  const handleSidebarMenuClick = () => { console.log("clicked"); showSidebar = !showSidebar}
 </script>
 
 <div class="sidebar">
-  <div class="container">
+  <button class="logo" on:click={handleSidebarMenuClick}>
+    Display navbar
+  </button>
+  <div id="sidebar-contents" class={`${showSidebar ? 'mobile': ''} `}>
+  <div class="container" >
     <h2 class="sidebar-header">Categories</h2>
     <ul>
       <li><a href="#">All Products</a></li>
@@ -72,6 +78,7 @@
       <a href="#" class="tags"> Room Flower</a>
     </p>
   </div>
+    </div>
 </div>
 
 <style>
@@ -201,5 +208,33 @@
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-  
+  .logo {
+    display: none;
+  }
+@media screen  and (max-width: 850px){
+    #sidebar-contents {
+      display: none;
+    }
+    .logo {
+      display: block;
+      width: 150px;
+      margin: 0 auto;
+    }
+    #sidebar-contents.mobile {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .sidebar {
+      max-width: none;
+      width: 100%;
+      padding: 20px;
+    }
+}
+
+@media screen and (max-width: 530px){
+  #sidebar-contents.mobile {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+    }
+}
 </style>
