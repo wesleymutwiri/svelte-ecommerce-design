@@ -1,7 +1,7 @@
 <script>
 	import Cards from '../Components/UI/Card.svelte';
 	import Products from '../Components/UI/Products.svelte';
-    import Header from '../Components/UI/Header.svelte';
+	import Header from '../Components/UI/Header.svelte';
 </script>
 	<Header/>
 	<Cards />
@@ -28,16 +28,6 @@
 					<p class="dates">Mon-Fri: 9am - 10pm</p>
 					<p class="dates">Saturday: 10am - 10pm</p>
 					<p class="dates">Sunday: 10am - 11pm</p>
-				</div>
-			</div>
-		</div>
-		<div class="copyright-footer">
-			<div class="row">
-				<p>2020 All rights reserved</p>
-				<div class="small-navbar">
-					<a href="#">Store</a>
-					<a href="#">Plant Care</a>
-					<a href="#">About</a>
 				</div>
 			</div>
 		</div>
@@ -78,23 +68,6 @@
 		padding: 10px;
 	}
 
-	.copyright-footer {
-		padding: 20px;
-	}
-	.copyright-footer p {
-		/* font-weight: 200; */
-		color: grey;
-	}
-	.small-navbar {
-		display: flex;
-		justify-content: space-around;
-		align-items: center;
-	}
-	.small-navbar a {
-		padding: 0 20px;
-		color: #000;
-		text-decoration: none;
-	}
 	@media screen and (max-width: 820px){
 		.row {
 			flex-direction: column;

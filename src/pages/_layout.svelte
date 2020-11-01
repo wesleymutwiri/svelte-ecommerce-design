@@ -1,5 +1,6 @@
 <script>
     import Navbar from '../Components/Navbar.svelte';
+    import Footer from '../Components/UI/Footer.svelte';
 </script>
 <div class="navbar">
     <Navbar />
@@ -7,7 +8,7 @@
 <main>
     <slot />
 </main>
-
+<Footer/> 
 <style>
     main {
         margin-top: 100px;
