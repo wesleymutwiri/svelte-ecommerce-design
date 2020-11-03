@@ -16,7 +16,7 @@
   </div>
   <div class="cart-description">
     <div class="cart-description-text">
-      <h3>{title}</h3>
+      <h3 class="title">{title}</h3>
       <p class="id">{id}</p>
     </div>
     <div class="cart-numbers">
@@ -75,7 +75,7 @@
         fill="none"
         stroke-linecap="round"
         stroke-linejoin="round"
-        class="css-i6dzq1"
+        class=""
         on:click="{removeFromCart}"
       >
         <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -137,5 +137,42 @@
     border: none;
     cursor: pointer;
     font-weight: 700;
+  }
+
+  @media screen and (max-width: 650px) {
+    .cart-description {
+      display: grid;
+      grid-template-areas:
+        "header header price"
+        "description description close"
+        "controls controls controls";
+    }
+
+    .cart-price {
+      margin-bottom: 54px;
+      grid-area: price;
+    }
+    .id {
+      grid-area: description;
+      padding: 15px 0;
+    }
+    .cart-numbers {
+      grid-area: controls;
+    }
+    .close {
+      grid-area: close;
+      display: none;
+    }
+    .title {
+      grid-area: header;
+    }
+
+    .cart-item-container:hover .close {
+      display: block;
+    }
+
+    button {
+      padding: 0px;
+    }
   }
 </style>

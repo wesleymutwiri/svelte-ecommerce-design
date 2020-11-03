@@ -20,8 +20,9 @@
             <p>Price: <span class="dark-text"> $470.00 </span></p>
         </div>
     </div>
-    
-   <ShippingForm/>
+    <div class="shipping-form">
+        <ShippingForm/>
+    </div>
 </div>
 
 <style>
@@ -51,5 +52,10 @@
     }
     .dark-text {
         font-weight: bolder;
+    }
+    @media screen and (max-width: 1200px) {
+        .shipping-form {
+            display: none;
+        }
     }
 </style>
