@@ -75,6 +75,7 @@
     position: fixed;
     width: 100%;
     top: 0;
+    z-index: 1;
   }
 
   .active {
@@ -205,8 +206,8 @@
       width: 100%;
       height: 90vh;
       position: absolute;
-      right: 50vw;
-      left: 0vw;
+      right: 8px;
+      /* left: 0vw; */
       top: 10vh;
     }
 
