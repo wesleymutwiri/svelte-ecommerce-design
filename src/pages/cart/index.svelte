@@ -3,7 +3,8 @@
     import ShippingForm from '../../Components/UI/Cart/ShippingForm.svelte';
     import cartItems from "./cart-store.js";
     let cats = Array.from(Array(3)).map(x=> Math.random())
-
+    let opened = false;
+    const openForm = () => {console.log("clicked"); opened = !opened}
 </script>
 
 <div class="container">
@@ -20,10 +21,12 @@
             <p>Price: <span class="dark-text"> $470.00 </span></p>
         </div>
     </div>
-    <div class="shipping-form">
+    <button class="open-form" on:click={openForm}>Shipping Details</button>
+    <div class="shipping-form" class:open={opened}>
         <ShippingForm/>
     </div>
 </div>
+
 
 <style>
     .container  {
@@ -53,9 +56,27 @@
     .dark-text {
         font-weight: bolder;
     }
+    .open-form {
+        display: none;
+        width: max-content;
+        padding: 10px;
+        background: none;
+        cursor: pointer;
+    }
     @media screen and (max-width: 1200px) {
+        .open-form {
+            display: block;
+            align-self: flex-start;
+        }
         .shipping-form {
             display: none;
+        }
+        .open {
+            display: block;
+        }
+        .container {
+            flex-direction: column;
+            align-items: center;
         }
     }
 </style>

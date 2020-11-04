@@ -33,4 +33,10 @@
     margin: 0 auto;
     text-align: center;
   }
+
+  @media screen and (max-width: 540px) {
+    .row {
+      flex-direction: column;
+    }
+  }
 </style>
