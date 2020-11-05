@@ -100,6 +100,7 @@
     position: relative;
     height: 40px;
     margin: 30px 0;
+    width: 240px;
   }
   .multi-range input[type="range"]:nth-child(1)::-webkit-slider-thumb::before {
     background-color: #808080;
