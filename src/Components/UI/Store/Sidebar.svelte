@@ -27,9 +27,18 @@
   <div class="container">
     <h4 class="sidebar-header">Size</h4>
     <ul>
-      <li class="sizes"><a href="#">Small</a></li>
-      <li class="sizes"><a href="#">Medium</a></li>
-      <li class="sizes"><a href="#">Large</a></li>
+      <li class="sizes">
+        <a href="#">Small</a>
+        <p>152</p>
+      </li>
+      <li class="sizes">
+        <a href="#">Medium</a>
+        <p>122</p>
+      </li>
+      <li class="sizes">
+        <a href="#">Large</a>
+      <p>12</p>
+      </li>
     </ul>
   </div>
   <div class="container">
@@ -105,6 +114,11 @@
     color: grey;
     text-decoration: none;
   }
+  a:hover {
+    font-weight: bolder;
+    transform: scale(1.5);
+    font-size: larger;
+  }
   p {
     color: grey;
   }
@@ -118,6 +132,10 @@
   }
   .sizes {
     padding: 5px 0;
+    /* padding-right: 30px; */
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
   }
 
   .row {
@@ -231,7 +249,7 @@
     }
 }
 
-@media screen and (max-width: 530px){
+@media screen and (max-width: 540px){
   #sidebar-contents.mobile {
       display: grid;
       grid-template-columns: repeat(1, 1fr);
