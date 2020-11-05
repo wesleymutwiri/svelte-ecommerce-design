@@ -145,19 +145,21 @@
     position: relative;
     height: 28px;
     width: 28px;
-    margin: 5px 0;
+    margin: 10em auto;
     border-radius: 50%;
-    background-color: #fff;
-    box-shadow: 0 1px 4px 0.5px rgba(0, 0, 0, 0.3);
+    border: 3px solid black;
+    background-color: black;
+    /* box-shadow: 0 0 0 10px #fff; */
+    box-shadow: 0px 0px 0px 5px rgb(255, 255, 255) inset;
     -moz-appearance: none;
     appearance: none;
     pointer-events: all;
   }
   input[type="range"]::-moz-range-thumb:hover {
-    background-color: #deddee;
+    background-color: #fff;
   }
   input[type="range"]::-moz-range-thumb:active {
-    background-color: #504d9b;
+    background-color: #fff;
   }
   input[type="range"]::-webkit-slider-thumb {
     position: relative;
