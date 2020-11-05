@@ -204,11 +204,11 @@
       background: black;
 
       width: 100%;
-      height: 90vh;
+      height: 100vh;
       position: absolute;
       right: 8px;
       /* left: 0vw; */
-      top: 10vh;
+      top: 80px;
     }
 
     .navbar-items.nav-elements.mobile ul {
@@ -216,8 +216,8 @@
       flex-direction: column;
       height: inherit;
       align-items: center;
-      justify-content: space-around;
-
+      justify-content: space-evenly;
+      height: 80vh;
     }
 
     .navbar-items.nav-elements.mobile ul a {
