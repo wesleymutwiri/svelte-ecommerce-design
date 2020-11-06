@@ -2,13 +2,16 @@
     import CartItem from '../../Components/UI/Cart/CartItem.svelte';
     import ShippingForm from '../../Components/UI/Cart/ShippingForm.svelte';
     import cartItems from "./cart-store.js";
+    import price from "./cart-store.js";
+
     let cats = Array.from(Array(3)).map(x=> Math.random())
     let opened = false;
     const openForm = () => {console.log("clicked"); opened = !opened}
+    let totalprice = cartItems.totalPrice($cartItems);
 </script>
 
 <div class="container">
-    
+    {price}
     <div class="cart-items">
         <h1>Shopping Cart</h1>
         {#each $cartItems as item (item.id)}
@@ -18,7 +21,7 @@
         {/each}
         <div class="cart-items-footer">
             <a href="/store">Continue Shopping</a>
-            <p>Price: <span class="dark-text"> $470.00 </span></p>
+            <p>Price: <span class="dark-text"> {totalprice} </span></p>
         </div>
     </div>
     <button class="open-form" on:click={openForm}>Shipping Details</button>
