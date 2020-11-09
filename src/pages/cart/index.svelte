@@ -11,7 +11,6 @@
 </script>
 
 <div class="container">
-    {price}
     <div class="cart-items">
         <h1>Shopping Cart</h1>
         {#each $cartItems as item (item.id)}
