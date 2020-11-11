@@ -36,7 +36,7 @@
       <ul>
         <li class:active={$isActive('/store')}><a href="{$url('/store')}" on:click={handleMobileIconClick}>Store</a></li>
         <li><a href="#" on:click={handleMobileIconClick}>Plant Care</a></li>
-        <li><a href="{$url('/about')}" on:click={handleMobileIconClick}>About</a></li>
+        <li class:active={$isActive('/about')}><a href="{$url('/about')}" on:click={handleMobileIconClick}>About</a></li>
       </ul>
     </div>
     <div class="navbar-icons">
