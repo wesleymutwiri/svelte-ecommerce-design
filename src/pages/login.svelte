@@ -1,23 +1,69 @@
-<script></script>
+<script>
+  import {session, testAPI, authenticate} from './profile/session.js';
+  import {onMount} from 'svelte';
+  import {goto} from '@sveltech/routify';
+
+  // const cors = require('cors')
+  let email = '';
+  let password = '';
+  let combined;
+  let data;
+  $: combined = {email: email, password: password};
+  $: if(data) {
+    $session.data = data;
+  }
+  onMount(()=> {
+    testAPI();
+  })
+  let result;
+  function submitHandler() {
+    result = authenticate(combined);
+    email = '';
+    password = '';
+  }
+    
+</script>
+{#if $session}
+  {$goto('/profile')}
+{:else}
 
 <div class="form-container">
   <h1>Log In</h1>
   <div class="card">
-    <form action="/" method="get">
+    <form action="/" on:submit|preventDefault={submitHandler}>
       <div class="input-container">
-        <input type="text" name="" id="" required />
-        <label for="name"> Name </label>
+        <input type="email" name="email" id="" required bind:value={email} />
+        <label for="email"> Email </label>
       </div>
       <div class="input-container">
-        <input type="password" name="" id="" required />
+        <input type="password" name="" id="" required bind:value={password}/>
         <label for="password">Password</label>
       </div>
+      {name} {password}
       <div class="button">
         <button type="submit">Login</button>
       </div>
     </form>
   </div>
 </div>
+<div>
+
+      {#if result===undefined}
+        <p>Undefined result</p>
+      {:else}
+        {#await result}
+          <div>logging in </div>
+        {:then value}
+          <div>{value}</div>
+          {$goto('/profile')}
+        {:catch error} 
+          <div>{error.message}</div>
+        {/await}
+      {/if}
+  <p>something</p>
+  <p>Didn't store auth</p>
+</div>
+{/if}
 <style>
   .form-container {
     width: 100%;
