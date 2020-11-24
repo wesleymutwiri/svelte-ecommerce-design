@@ -1,67 +1,120 @@
 <script>
-  import {session, testAPI, authenticate} from './profile/session.js';
+  import {session, testAPI, authenticate, signup} from './profile/session.js';
   import {onMount} from 'svelte';
   import {goto} from '@sveltech/routify';
 
   // const cors = require('cors')
   let email = '';
   let password = '';
+  let signupEmail = '';
+  let signupPassword = '';
+  let signupUsername = '';
+  let confirmPassword = '';
   let combined;
   let data;
+  let SignUpUser;
+
   $: combined = {email: email, password: password};
+  $: SignUpUser = {email: signupEmail, password: signupPassword, username: signupUsername}
   $: if(data) {
     $session.data = data;
   }
   onMount(()=> {
     testAPI();
+    checkSession()
   })
+
+  function checkSession() {
+    if($session) {
+      $goto('/profile')
+    }
+  }
   let result;
-  function submitHandler() {
-    result = authenticate(combined);
+  function LoginUser() {
+    result = authenticate(combined)
     email = '';
     password = '';
   }
+
+  function SubmitRegister() {
+    result = signup(SignUpUser)
+    signupEmail = '';
+    signupPassword = '';
+    signupUsername = '';
+    confirmPassword = '';
+  }
+  let current = "Login";
+
     
 </script>
 {#if $session}
   {$goto('/profile')}
 {:else}
-
+<div class="choices">
+  <button on:click="{()=> current = 'Login'}">login</button>
+  <button on:click="{()=> current = 'Sign Up'}">Sign up</button>
+</div>
+{#if current === "Login"}
+  <div class="form-container">
+    <div class="card">
+      <form action="/" on:submit|preventDefault={LoginUser}>
+        <div class="input-container">
+          <input type="email" name="email" id="" required bind:value={email} />
+          <label for="email"> Email </label>
+        </div>
+        <div class="input-container">
+          <input type="password" name="" id="" required bind:value={password}/>
+          <label for="password">Password</label>
+        </div>
+        <div class="button">
+          <button type="submit">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+{:else if current === 'Sign Up'}
 <div class="form-container">
-  <h1>Log In</h1>
   <div class="card">
-    <form action="/" on:submit|preventDefault={submitHandler}>
-      <div class="input-container">
-        <input type="email" name="email" id="" required bind:value={email} />
-        <label for="email"> Email </label>
-      </div>
-      <div class="input-container">
-        <input type="password" name="" id="" required bind:value={password}/>
-        <label for="password">Password</label>
-      </div>
-      {name} {password}
-      <div class="button">
-        <button type="submit">Login</button>
-      </div>
-    </form>
+
+  <h1>Sign up</h1>
+  <form action="" method="post" on:submit|preventDefault={SubmitRegister}>
+
+ 
+  <div class="input-container">
+    <input type="email" name="email" id="" required bind:value={signupEmail} />
+    <label for="email">Email</label>
+  </div>
+  <div class="input-container">
+    <input type="text" name="username" id="" required bind:value={signupUsername} />
+    <label for="name">Username</label>
+  </div>
+  <div class="input-container">
+    <input type="password" name="password" id="" required bind:value={signupPassword} />
+    <label for="password">Password</label>
+  </div>
+  <div class="input-container">
+    <input type="password" name="confirm-password" id="" required bind:value={confirmPassword} />
+    <label for="confirm-password">Confirm Password</label>
+  </div>
+          <div class="button">
+          <button type="submit">Sign Up</button>
+        </div>
+      </form>
   </div>
 </div>
+{/if}
 <div>
-
       {#if result===undefined}
-        <p>Undefined result</p>
+        <p class="message">Undefined result</p>
       {:else}
         {#await result}
-          <div>logging in </div>
+          <div class="message">logging in </div>
         {:then value}
-          <div>{value}</div>
           {$goto('/profile')}
         {:catch error} 
-          <div>{error.message}</div>
+          <div>{ error }</div>
         {/await}
       {/if}
-  <p>something</p>
-  <p>Didn't store auth</p>
 </div>
 {/if}
 <style>
@@ -110,5 +163,15 @@
     margin: auto auto;
     width: 300px;
     height: fit-content;
+  }
+  .choices {
+		text-transform: uppercase;
+    display: flex;
+    align-items: center;
+		justify-content: center;
+    width: 100%;
+	}
+  .choices button {
+    width: max-content;
   }
 </style>
