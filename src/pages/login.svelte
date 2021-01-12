@@ -54,16 +54,17 @@
   <button on:click="{()=> current = 'Login'}">login</button>
   <button on:click="{()=> current = 'Sign Up'}">Sign up</button>
 </div>
+<div class="container">
 {#if current === "Login"}
   <div class="form-container">
     <div class="card">
       <form action="/" on:submit|preventDefault={LoginUser}>
         <div class="input-container">
-          <input type="email" name="email" id="" required bind:value={email} />
+          <input type="email" name="email" id="" bind:value={email} placeholder="email"/>
           <label for="email"> Email </label>
         </div>
         <div class="input-container">
-          <input type="password" name="" id="" required bind:value={password}/>
+          <input type="password" name="" id="" bind:value={password} placeholder="password"/>
           <label for="password">Password</label>
         </div>
         <div class="button">
@@ -116,54 +117,49 @@
         {/await}
       {/if}
 </div>
+</div>
 {/if}
 <style>
-  .form-container {
-    width: 100%;
-    height: 80vh;
-  }
-  .input-container {
-    position: relative;
-  }
-
-  input {
-    width: 100%;
-    padding: 10px 0px;
-    font-size: 16px;
-    border: none;
-    border-bottom: 1px solid black;
-    margin-bottom: 30px;
-    outline: none;
-    background: transparent;
-  }
-
-  label {
+  .container {
+    background: url(/tree_bark/tree_bark.png);
     position: absolute;
     top: 0;
     left: 0;
-    padding: 10px 0;
-    pointer-events: none;
-    transition: 0.5s;
+    right: 0;
+    bottom: 0;
   }
-  input:focus ~ label,
-  input:valid ~ label {
-    top: -20px;
-    left: 0;
-    font-size: 12px;
+  .form-container {
+    width: 100%;
+    height: 100%;
+    min-height: 70vh;
+    padding: 20px;
+    display: flex;
+    /* position: relative; */
   }
+  
   button {
     background: #226200;
     color: #fff;
     text-transform: uppercase;
     width: 100%;
     margin-top: 30px;
+    padding: 10px 20px;
+    border-radius: 8px;
   }
-
+  
   .card {
     margin: auto auto;
     width: 300px;
     height: fit-content;
   }
+
+  input {
+    border: none;
+    border-bottom: 2px solid black;
+    padding-left: 0px;
+    position: relative;
+  }
+
   .choices {
 		text-transform: uppercase;
     display: flex;
@@ -174,4 +170,36 @@
   .choices button {
     width: max-content;
   }
+   /* input[type="text"] {
+        width: 100%;
+        padding: 10px 0;
+        font-size: 16px;
+        border: none;
+        border-bottom: 1px solid black;
+        outline: none;
+        background: transparent;
+        margin-bottom: 30px;
+    }
+
+    label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 10px 0;
+        font-size: 16px;
+        pointer-events: none;
+        transition: .5s;
+    }
+    .form-container-select label {
+        position: unset;
+    }
+   input:focus ~ label, input:valid ~ label{
+        top: -20px;
+        left: 0;
+        font-size: 12px;
+    } */
+
+    label{
+      display: none;
+    }
 </style>
