@@ -50,22 +50,24 @@
 {#if $session}
   {$goto('/profile')}
 {:else}
-<div class="choices">
+
+<div class="container">
+  <div class="choices">
   <button on:click="{()=> current = 'Login'}">login</button>
   <button on:click="{()=> current = 'Sign Up'}">Sign up</button>
 </div>
-<div class="container">
 {#if current === "Login"}
   <div class="form-container">
     <div class="card">
+       <h1>Sign In</h1>
       <form action="/" on:submit|preventDefault={LoginUser}>
         <div class="input-container">
-          <input type="email" name="email" id="" bind:value={email} placeholder="email"/>
           <label for="email"> Email </label>
+          <input type="email" name="email" id="" bind:value={email} placeholder="aa@gmail.com"/>
         </div>
         <div class="input-container">
-          <input type="password" name="" id="" bind:value={password} placeholder="password"/>
           <label for="password">Password</label>
+          <input type="password" name="" id="" bind:value={password} placeholder="******"/>
         </div>
         <div class="button">
           <button type="submit">Login</button>
@@ -82,20 +84,20 @@
 
  
   <div class="input-container">
-    <input type="email" name="email" id="" required bind:value={signupEmail} />
     <label for="email">Email</label>
+    <input type="email" name="email" id="" bind:value={signupEmail} placeholder="aa@gmail.com"/>
   </div>
   <div class="input-container">
-    <input type="text" name="username" id="" required bind:value={signupUsername} />
     <label for="name">Username</label>
+    <input type="text" name="username" id=""  bind:value={signupUsername} placeholder="aa"/>
   </div>
   <div class="input-container">
-    <input type="password" name="password" id="" required bind:value={signupPassword} />
     <label for="password">Password</label>
+    <input type="password" name="password" id="" bind:value={signupPassword} placeholder="*****"/>
   </div>
   <div class="input-container">
-    <input type="password" name="confirm-password" id="" required bind:value={confirmPassword} />
     <label for="confirm-password">Confirm Password</label>
+    <input type="password" name="confirm-password" id=""  bind:value={confirmPassword} placeholder="******"/>
   </div>
           <div class="button">
           <button type="submit">Sign Up</button>
@@ -120,13 +122,20 @@
 </div>
 {/if}
 <style>
-  .container {
+  /* .container {
     background: url(/tree_bark/tree_bark.png);
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    z-index: -2;around
+  } */
+  .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .form-container {
     width: 100%;
@@ -134,7 +143,6 @@
     min-height: 70vh;
     padding: 20px;
     display: flex;
-    /* position: relative; */
   }
   
   button {
@@ -149,8 +157,27 @@
   
   .card {
     margin: auto auto;
-    width: 300px;
-    height: fit-content;
+    width: 450px;
+    height: max-content;
+    min-height: 450px;
+    background: rgb(245, 245, 245);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 14px;
+    align-items: center;
+    box-shadow:
+      /* The top layer shadow */
+      0 -1px 1px rgba(0,0,0,0.15),
+      /* The second layer */
+      0 -10px 0 -5px #eee,
+      /* The second layer shadow */
+      0 -10px 1px -4px rgba(0,0,0,0.15),
+      /* The third layer */
+      0 -20px 0 -10px #eee,
+      /* The third layer shadow */
+      0 -20px 1px -9px rgba(0,0,0,0.15);
   }
 
   input {
@@ -165,10 +192,13 @@
     display: flex;
     align-items: center;
 		justify-content: center;
-    width: 100%;
+    width: 450px;
 	}
   .choices button {
-    width: max-content;
+    width: 50%;
+    border-radius: 0px;
+    border: none;
+    outline: none;
   }
    /* input[type="text"] {
         width: 100%;
@@ -200,6 +230,8 @@
     } */
 
     label{
-      display: none;
+      /* display: none; */
+      padding: 10px 0px;
     }
+
 </style>

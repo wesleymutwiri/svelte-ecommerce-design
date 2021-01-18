@@ -12,7 +12,7 @@
 
 <div class="product">
   <div class="product-image">
-    <a href="store/{slug}">
+    <a href="{slug}">
       <img src={`https://picsum.photos/250/200?random=${number}`} alt="" />
     </a>
   </div>
